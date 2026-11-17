@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vert-900: #14532d;
+  --color-vert-800: #166534;
+  --color-vert-700: #15803d;
+  --color-vert-100: #dcfce7;
+  --color-vert-50: #f0fdf4;
+
+  --color-marron-900: #451a03;
+  --color-marron-800: #78350f;
+  --color-marron-700: #92400e;
+  --color-marron-600: #b45309;
+  --color-marron-100: #fef3c7;
+  --color-marron-50: #fffbeb;
+
+  --color-sable: #f7f6f2;
+  --color-bordure: #e5e2d9;
+  --color-encre: #1c1917;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-sable);
+  color: var(--color-encre);
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabulaire {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Native <dialog> modal scroll containment & styling (modern-web-guidance) */
+dialog:modal {
+  overscroll-behavior: contain;
+  margin: auto;
+  max-inline-size: min(94vw, 36rem);
+  max-block-size: 90dvh;
+  border: 1px solid var(--color-bordure);
+  border-radius: 1rem;
+  padding: 0;
+  background: #ffffff;
+  color: var(--color-encre);
+  box-shadow: 0 25px 50px -12px rgba(28, 25, 23, 0.25);
+}
+
+dialog::backdrop {
+  background: rgba(20, 83, 45, 0.45);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+/* Form touch targets & iOS zoom prevention (modern-web-guidance) */
+input,
+select,
+textarea {
+  font: inherit;
+  font-size: max(1rem, 1em);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #166534;
+  outline-offset: 2px;
+}
+
+/* Responsive data table container */
+.table-wrapper {
+  overflow-x: auto;
+  max-inline-size: 100%;
+  container-type: inline-size;
+}
+
+/* Vue impression propre */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+  }
+}
